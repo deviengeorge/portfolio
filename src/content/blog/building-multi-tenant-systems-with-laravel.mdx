@@ -1,0 +1,58 @@
+---
+title: "Building Multi-Tenant Systems with Laravel"
+description: "Lessons learned from architecting a church management platform serving 24 organizations with shared infrastructure and isolated data."
+pubDate: 2025-12-15
+tags: ["Laravel", "Architecture", "Multi-tenancy"]
+draft: false
+---
+
+Multi-tenancy is one of those architectural decisions that shapes everything about your application. After building the Regional Church System — a platform now serving 24 churches with 1,000+ daily users — I want to share the practical lessons that documentation rarely covers.
+
+## What is Multi-Tenancy?
+
+At its core, multi-tenancy means a single application instance serves multiple organizations (tenants). Each tenant's data is isolated, but they share the same codebase and infrastructure. The three common approaches are:
+
+1. **Separate databases** — Each tenant gets their own database
+2. **Shared database, separate schemas** — One database with schema-level isolation
+3. **Shared database, shared schema** — Single database with a `tenant_id` column
+
+For the church system, I chose option 3 — shared database with tenant identification — because the data model was consistent across churches and the operational overhead of managing 24+ databases wasn't justified.
+
+## Key Lessons
+
+### 1. Scope Everything by Default
+
+The biggest risk in multi-tenant systems is data leaks between tenants. Apply tenant scoping globally using Laravel's model events or global scopes:
+
+```php
+// App\Models\Concerns\BelongsToChurch.php
+trait BelongsToChurch
+{
+    protected static function bootBelongsToChurch(): void
+    {
+        static::addGlobalScope('church', function ($query) {
+            $query->where('church_id', auth()->user()?->church_id);
+        });
+
+        static::creating(function ($model) {
+            $model->church_id = auth()->user()->church_id;
+        });
+    }
+}
+```
+
+### 2. Cache Keys Must Include Tenant ID
+
+Forgetting this means one church sees another's cached data. Every cache key should be prefixed:
+
+```php
+Cache::remember("church:{$churchId}:members:count", 3600, fn() => ...);
+```
+
+### 3. Test with Multiple Tenants from Day One
+
+Write tests that create data for two tenants and verify isolation. This catches scope leaks early.
+
+## Conclusion
+
+Multi-tenancy adds complexity, but the patterns become second nature. The key is establishing strict conventions early and enforcing them through base classes and traits rather than relying on developers remembering to add `where` clauses.

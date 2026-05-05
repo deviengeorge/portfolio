@@ -1,0 +1,42 @@
+# Devien George — Full-Stack Software Engineer
+
+> Devien George is a Full-Stack Software Engineer with 4+ years of experience based in Cairo, Egypt. He builds and scales production web platforms, having served 1,000+ daily users across 24 organizations.
+
+## About
+
+- Name: Devien George Francis
+- Title: Full-Stack Software Engineer
+- Location: Cairo, Egypt
+- Email: deviengeorge99@gmail.com
+- Website: https://deviengeorge.me
+- GitHub: https://github.com/deviengeorge
+- LinkedIn: https://linkedin.com/in/deviengeorge
+- Education: BS in Computer Science & Statistics, University of Helwan (2020–2026)
+
+## Expertise
+
+- Full-Stack Web Development (4+ years)
+- Backend: Laravel, Node.js (Express, NestJS, AdonisJS), Spring Boot, .NET
+- Frontend: React, Next.js, Vue.js, Nuxt.js, Angular, TypeScript
+- Database: PostgreSQL, MySQL, MongoDB, Redis, Elasticsearch
+- DevOps: Docker, Kubernetes, Jenkins, GitHub Actions, Nginx, Linux
+- Architecture: Microservices, Event-Driven Systems, Multi-Tenant Platforms
+
+## Key Projects
+
+### Regional Church System (2023–Present)
+Multi-tenant church management platform serving 24 churches with 1,000+ daily users. Built with Laravel, FilamentPHP, React, MySQL, Docker, and Redis.
+
+### Hessah System (2024–2025)
+EdTech SaaS for private tutors. Attendance, payments, exam analytics, parent notifications. Laravel, FilamentPHP.
+
+### ALReserve (2026–Present)
+Luxury accommodation booking platform for GCC travelers. React 19, Hono, Bun, Supabase, TypeScript monorepo.
+
+## Teaching
+
+Mentored 70+ students across 5+ institutions including AMIT Learning, Konecta, StemEC, and Senior Steps. Taught full-stack development, microservices, Java, Spring Boot, C#, .NET, React, Laravel, and Node.js.
+
+## Current Status
+
+Available for full-stack engineering roles, contract work, and technical consulting. Open to remote positions worldwide.

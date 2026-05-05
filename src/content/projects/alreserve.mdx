@@ -1,0 +1,41 @@
+---
+title: "ALReserve"
+description: "A membership-based luxury accommodation booking platform for GCC travelers visiting the UK, USA, and Europe, featuring real-time hotel search and RTL-first internationalization."
+tech: ["React 19", "Hono", "Bun", "Supabase", "TypeScript", "Drizzle ORM", "PostgreSQL", "Redis", "Docker", "Playwright"]
+role: "Full Stack Software Engineer"
+period: "Apr 2026 – Present"
+featured: true
+order: 3
+---
+
+ALReserve is a membership-based luxury accommodation booking platform designed for Gulf Cooperation Council (GCC) travelers seeking premium stays in the UK, USA, and Europe.
+
+## The Challenge
+
+GCC travelers seeking luxury accommodations need a platform that understands their preferences — Arabic-first interface, curated high-end properties, and a membership model that provides exclusive rates and personalized service.
+
+## Solution
+
+Building a full-stack platform with a TypeScript monorepo architecture, integrating multiple third-party booking APIs for comprehensive property coverage while maintaining a premium user experience.
+
+### Key Features
+
+- **Real-time Hotel Search** — Integration with HyperGuest and Amadeus APIs for availability and pricing
+- **RTL-first Internationalization** — Arabic/English support using react-i18next and Tailwind logical properties
+- **Membership System** — Tiered access with exclusive rates and benefits
+- **Reservation Management** — End-to-end booking flow with confirmation and modification support
+- **Background Job Processing** — pg-boss for async tasks like email notifications and rate syncing
+
+## Technical Architecture
+
+- **Frontend:** React 19 with TypeScript, Tailwind CSS, RTL-first design
+- **Backend:** Hono framework running on Bun runtime for maximum performance
+- **Database:** Supabase (PostgreSQL) with Drizzle ORM for type-safe queries
+- **Caching:** Redis for rate caching and session management
+- **Infrastructure:** Docker-based deployments with Biome linting
+- **Testing:** Playwright for end-to-end testing
+- **Architecture:** TypeScript monorepo with shared types and utilities
+
+## Current Status
+
+Active development — building core booking flow, membership system, and payment integration.

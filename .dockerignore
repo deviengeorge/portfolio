@@ -1,0 +1,12 @@
+node_modules
+dist
+.git
+.gitignore
+.vscode
+.superpowers
+CV
+CLAUDE.md
+README.md
+*.md
+!src/**/*.md
+!src/**/*.mdx

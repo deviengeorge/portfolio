@@ -1,17 +1,63 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Stats from '../components/Stats.astro';
+import ProjectList from '../components/ProjectList.astro';
+import Experience from '../components/Experience.astro';
+import Teaching from '../components/Teaching.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Devien George — Full-Stack Software Engineer">
+  <Nav />
+  <main>
+    <Hero />
+    <Stats />
+    <ProjectList />
+    <Experience />
+    <Teaching />
+    <Contact />
+  </main>
+  <Footer />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Devien George",
+    "alternateName": "Devien George Francis",
+    "jobTitle": "Full-Stack Software Engineer",
+    "url": "https://deviengeorge.me",
+    "email": "deviengeorge99@gmail.com",
+    "telephone": "+201281089983",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cairo",
+      "addressCountry": "EG"
+    },
+    "sameAs": [
+      "https://github.com/deviengeorge",
+      "https://linkedin.com/in/deviengeorge",
+      "https://x.com/devien_george"
+    ],
+    "knowsAbout": ["Laravel", "React", "Next.js", "Vue.js", "TypeScript", "Node.js", "Docker", "Kubernetes", "PostgreSQL", "MySQL"],
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Helwan"
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "name": "ALReserve"
+    }
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Devien George",
+    "url": "https://deviengeorge.me",
+    "description": "Portfolio of Devien George, a Full-Stack Software Engineer with 4+ years of experience building scalable production web platforms."
+  })} />
+</BaseLayout>

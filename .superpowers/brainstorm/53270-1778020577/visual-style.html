@@ -1,0 +1,83 @@
+<h2>What visual style speaks to you?</h2>
+<p class="subtitle">Pick the aesthetic direction that feels most like "you" — we can mix elements later</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: #0a0a0a; padding: 30px; font-family: monospace;">
+      <div style="color: #00ff88; font-size: 12px; margin-bottom: 8px;">$ whoami</div>
+      <div style="color: #e0e0e0; font-size: 18px; font-weight: bold;">devien.george</div>
+      <div style="color: #666; font-size: 11px; margin-top: 8px;">// building the future, one commit at a time</div>
+      <div style="margin-top: 15px; display: flex; gap: 8px;">
+        <span style="background: #1a1a2e; color: #00ff88; padding: 3px 8px; border-radius: 4px; font-size: 10px;">React</span>
+        <span style="background: #1a1a2e; color: #00ff88; padding: 3px 8px; border-radius: 4px; font-size: 10px;">Laravel</span>
+        <span style="background: #1a1a2e; color: #00ff88; padding: 3px 8px; border-radius: 4px; font-size: 10px;">Docker</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Dark Terminal / Hacker</h3>
+      <p>Dark background, monospace accents, code-inspired animations. Terminal-like elements, matrix vibes. Bold and techy.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px;">
+      <div style="color: white; font-size: 22px; font-weight: 700; letter-spacing: -0.5px;">Devien George</div>
+      <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-top: 4px;">Full-Stack Software Engineer</div>
+      <div style="margin-top: 20px; display: flex; gap: 12px;">
+        <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 10px 14px; text-align: center;">
+          <div style="color: white; font-size: 18px; font-weight: bold;">4+</div>
+          <div style="color: rgba(255,255,255,0.7); font-size: 9px;">YEARS</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 10px 14px; text-align: center;">
+          <div style="color: white; font-size: 18px; font-weight: bold;">70+</div>
+          <div style="color: rgba(255,255,255,0.7); font-size: 9px;">STUDENTS</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 10px 14px; text-align: center;">
+          <div style="color: white; font-size: 18px; font-weight: bold;">1K+</div>
+          <div style="color: rgba(255,255,255,0.7); font-size: 9px;">USERS</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Modern Gradient / Glassmorphism</h3>
+      <p>Vibrant gradients, glass-like cards, smooth animations, frosted blur effects. Polished and contemporary. Think Linear/Vercel.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: #fafafa; padding: 30px;">
+      <div style="color: #111; font-size: 24px; font-weight: 800; letter-spacing: -1px;">Devien George</div>
+      <div style="width: 40px; height: 3px; background: #111; margin: 10px 0;"></div>
+      <div style="color: #666; font-size: 12px; line-height: 1.6;">Engineer. Educator. Builder.<br>Crafting scalable systems since 2021.</div>
+      <div style="margin-top: 15px;">
+        <span style="color: #111; font-size: 11px; border-bottom: 2px solid #111; padding-bottom: 2px; margin-right: 16px;">Work</span>
+        <span style="color: #999; font-size: 11px; margin-right: 16px;">Projects</span>
+        <span style="color: #999; font-size: 11px;">Contact</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Minimal / Editorial</h3>
+      <p>Clean white space, strong typography, subtle animations. Content-first, elegant. Think Apple/Stripe design language.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="d" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: #0f0f23; padding: 30px; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 10px; right: 15px; width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #f093fb, #f5576c); opacity: 0.6;"></div>
+      <div style="position: absolute; bottom: -10px; left: 20px; width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #4facfe, #00f2fe); opacity: 0.4;"></div>
+      <div style="position: relative; z-index: 1;">
+        <div style="color: white; font-size: 20px; font-weight: 700;">Devien George</div>
+        <div style="color: rgba(255,255,255,0.5); font-size: 12px; margin-top: 4px;">Full-Stack Engineer & Mentor</div>
+        <div style="margin-top: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px; background: rgba(255,255,255,0.03);">
+          <div style="color: #4facfe; font-size: 11px;">Featured Project</div>
+          <div style="color: white; font-size: 13px; margin-top: 3px;">Regional Church System</div>
+          <div style="color: rgba(255,255,255,0.4); font-size: 10px; margin-top: 2px;">24 churches · 1,000+ daily users</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>D — Dark + Colorful Accents</h3>
+      <p>Dark base with vibrant color pops, floating shapes, interactive 3D elements. Immersive and creative. Think Framer/Awwwards.</p>
+    </div>
+  </div>
+</div>

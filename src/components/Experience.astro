@@ -1,0 +1,68 @@
+---
+const experience = [
+  {
+    period: 'Apr 2026 – Present',
+    role: 'Full Stack Software Engineer',
+    company: 'ALReserve',
+    type: 'Contract, Remote',
+    description: 'Building a membership-based luxury accommodation booking platform for GCC travelers. React 19, Hono, Bun, Supabase, TypeScript monorepo.',
+  },
+  {
+    period: 'Aug 2025 – Apr 2026',
+    role: 'Senior Software Engineer',
+    company: 'StemEC',
+    type: 'Full-Time, Remote',
+    description: 'Led development of an education SaaS platform. Managed cross-functional teams, built CI/CD pipelines with Jenkins, Docker, and Kubernetes.',
+  },
+  {
+    period: 'May 2025 – Oct 2025',
+    role: 'Full Stack Instructor',
+    company: 'Konecta',
+    type: 'Contract, On-site',
+    description: 'Designed 7-week internship curriculum covering Java, Spring Boot, C#, .NET, Microservices. Led 2 batches of 40+ students.',
+  },
+  {
+    period: 'Jun 2024 – Sep 2025',
+    role: 'Full Stack Web Instructor',
+    company: 'AMIT Learning',
+    type: 'Contract, On-site',
+    description: 'Taught Full-Stack Web Development track. Supervised 30+ student projects covering React, Laravel, Next.js, and Node.js.',
+  },
+  {
+    period: 'Jun 2022 – May 2023',
+    role: 'Mid-Level Frontend Engineer',
+    company: 'Stallion AI',
+    type: 'Full-Time, Remote',
+    description: 'Migrated main website from Vue 3 to Nuxt 3. Improved performance by 35% with lazy loading and code splitting.',
+  },
+  {
+    period: 'May 2021 – Oct 2022',
+    role: 'Junior Frontend Engineer',
+    company: 'Etolv',
+    type: 'Full-Time, Hybrid',
+    description: 'Migrated React e-commerce to Next.js (45% SEO improvement). Enhanced Angular Travel Management System with 40% responsiveness gains.',
+  },
+];
+---
+
+<section id="experience" class="max-w-5xl mx-auto px-6 py-20 md:py-28">
+  <p class="text-sm uppercase tracking-widest text-stone-500 dark:text-stone-400 mb-3">Career</p>
+  <h2 class="text-3xl md:text-4xl font-serif text-stone-900 dark:text-stone-100 mb-12">Experience</h2>
+
+  <div class="space-y-0 divide-y divide-stone-200 dark:divide-stone-800 border-t border-stone-200 dark:border-stone-800">
+    {experience.map(({ period, role, company, type, description }) => (
+      <div class="py-6 md:py-8 grid md:grid-cols-[200px_1fr] gap-2 md:gap-8">
+        <div class="text-sm text-stone-500 dark:text-stone-400 md:pt-0.5">
+          {period}
+        </div>
+        <div>
+          <h3 class="text-lg font-serif text-stone-900 dark:text-stone-100">{role}</h3>
+          <p class="text-sm text-stone-600 dark:text-stone-400">
+            {company} <span class="text-stone-400 dark:text-stone-500">· {type}</span>
+          </p>
+          <p class="text-stone-600 dark:text-stone-400 mt-2 text-sm leading-relaxed">{description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
