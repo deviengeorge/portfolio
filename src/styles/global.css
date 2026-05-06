@@ -4,7 +4,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-serif: "Instrument Serif", serif;
+  --font-serif: "DM Serif Display", serif;
   --font-sans: "DM Sans", sans-serif;
 
   --color-stone-50: #fafaf9;
