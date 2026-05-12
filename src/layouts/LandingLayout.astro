@@ -1,0 +1,339 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  audience: 'students' | 'developers';
+}
+
+const { title, description, audience } = Astro.props;
+const accentColor = audience === 'students' ? '#10b981' : '#3b82f6';
+---
+
+<!doctype html>
+<html lang="ar" dir="rtl" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="ar_SA" />
+
+    <!-- Fonts: Cairo (Arabic) + JetBrains Mono (code) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <style define:vars={{ accent: accentColor }}>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --accent: var(--accent);
+        --bg-primary: #0a0a0f;
+        --bg-secondary: #12121a;
+        --bg-card: #1a1a25;
+        --text-primary: #f0f0f5;
+        --text-secondary: #9ca3af;
+        --text-muted: #6b7280;
+        --border: #2a2a35;
+        --whatsapp: #25d366;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        font-family: 'Cairo', sans-serif;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.8;
+        overflow-x: hidden;
+      }
+
+      /* Dot grid background */
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+        background-size: 32px 32px;
+        opacity: 0.4;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* Glow effect behind hero */
+      .hero-glow {
+        position: absolute;
+        top: -120px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        height: 400px;
+        background: radial-gradient(ellipse, var(--accent), transparent 70%);
+        opacity: 0.08;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* Sections */
+      section {
+        position: relative;
+        z-index: 1;
+      }
+
+      .container {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      /* Typography */
+      h1 {
+        font-size: clamp(2rem, 6vw, 3.2rem);
+        font-weight: 900;
+        line-height: 1.3;
+        letter-spacing: -0.02em;
+      }
+
+      h2 {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        font-weight: 800;
+        line-height: 1.4;
+      }
+
+      h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+      }
+
+      .accent {
+        color: var(--accent);
+      }
+
+      .mono {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.85em;
+        direction: ltr;
+        unicode-bidi: isolate;
+      }
+
+      /* Cards */
+      .card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        transition: border-color 0.2s ease;
+      }
+
+      .card:hover {
+        border-color: var(--accent);
+      }
+
+      /* WhatsApp CTA */
+      .cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: var(--whatsapp);
+        color: #fff;
+        font-family: 'Cairo', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        padding: 1rem 2rem;
+        border-radius: 60px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        box-shadow: 0 4px 24px rgba(37, 211, 102, 0.25);
+      }
+
+      .cta-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 32px rgba(37, 211, 102, 0.35);
+      }
+
+      .cta-btn:active {
+        transform: translateY(0);
+      }
+
+      .cta-btn svg {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+      }
+
+      /* Sticky bottom CTA */
+      .sticky-cta {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 1rem 1.5rem;
+        background: linear-gradient(to top, var(--bg-primary) 60%, transparent);
+        display: flex;
+        justify-content: center;
+        pointer-events: none;
+      }
+
+      .sticky-cta .cta-btn {
+        pointer-events: auto;
+        width: 100%;
+        max-width: 400px;
+        justify-content: center;
+      }
+
+      /* Badge */
+      .badge {
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 600;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        background: color-mix(in srgb, var(--accent) 15%, transparent);
+        color: var(--accent);
+        border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+      }
+
+      /* Steps */
+      .step-number {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+      }
+
+      /* Stats */
+      .stat-value {
+        font-size: 2rem;
+        font-weight: 900;
+        color: var(--accent);
+        line-height: 1;
+      }
+
+      /* Spacing utilities */
+      .section-gap {
+        padding: 4rem 0;
+      }
+
+      /* Separator */
+      .sep {
+        width: 60px;
+        height: 3px;
+        background: var(--accent);
+        border-radius: 2px;
+        margin: 1.5rem 0;
+      }
+
+      /* Price highlight */
+      .price {
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: var(--text-primary);
+      }
+
+      .price-currency {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+      }
+
+      /* Testimonial */
+      .testimonial {
+        border-right: 3px solid var(--accent);
+        padding-right: 1.5rem;
+        font-style: italic;
+        color: var(--text-secondary);
+      }
+
+      /* Grid */
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      @media (min-width: 540px) {
+        .grid-2 {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* Bottom padding for sticky CTA */
+      main {
+        padding-bottom: 100px;
+      }
+
+      /* Animations */
+      @keyframes fade-up {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-in {
+        animation: fade-up 0.6s ease forwards;
+        opacity: 0;
+      }
+
+      .delay-1 { animation-delay: 0.1s; }
+      .delay-2 { animation-delay: 0.2s; }
+      .delay-3 { animation-delay: 0.3s; }
+      .delay-4 { animation-delay: 0.4s; }
+      .delay-5 { animation-delay: 0.5s; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+
+    <!-- Sticky WhatsApp CTA -->
+    <div class="sticky-cta">
+      <a
+        href="https://wa.me/201281089983?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%B4%D9%81%D8%AA%20%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%86%20%D9%88%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AA%D8%B9%D9%84%D9%85"
+        class="cta-btn"
+        target="_blank"
+        rel="noopener"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        ابدأ الآن — أول session مجانية
+      </a>
+    </div>
+  </body>
+</html>
