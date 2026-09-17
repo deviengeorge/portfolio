@@ -12,7 +12,7 @@
 - Layouts in `src/layouts/`
 - Use semantic HTML elements (`<article>`, `<section>`, `<nav>`, `<main>`)
 - Dark mode: toggle `.dark` class on `<html>`, use Tailwind `dark:` prefix
-- Fonts: Instrument Serif (headings), DM Sans (body)
+- Fonts: DM Serif Display (headings), DM Sans (body)
 - Design: minimal, editorial, typography-driven. No animations.
 - Colors: warm stone palette with amber accent
 
