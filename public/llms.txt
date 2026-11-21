@@ -16,26 +16,30 @@
 ## Expertise
 
 - Full-Stack Web Development (4+ years)
-- Backend: Laravel, Node.js (Express, NestJS, AdonisJS), Spring Boot, .NET
-- Frontend: React, Next.js, Vue.js, Nuxt.js, Angular, TypeScript
-- Database: PostgreSQL, MySQL, MongoDB, Redis, Elasticsearch
-- DevOps: Docker, Kubernetes, Jenkins, GitHub Actions, Nginx, Linux
+- Backend: Laravel, FilamentPHP, Livewire, Node.js (AdonisJS, Express), TypeScript, .NET 8
+- Frontend: React, Next.js, Vue.js / Nuxt, Angular, Tailwind CSS
+- Data: PostgreSQL, MySQL, Redis, Meilisearch
+- DevOps: Docker, Coolify, Traefik, Woodpecker CI, GitHub Actions, Jenkins, Kubernetes, Prometheus, Grafana
+- Taught / familiar with: Java, Spring Boot, .NET microservices, NestJS, MongoDB, Elasticsearch, Django
 - Architecture: Microservices, Event-Driven Systems, Multi-Tenant Platforms
 
 ## Key Projects
 
+### ALReserve (2026–Present) — https://alreserve.com
+Live membership-based luxury accommodation booking platform for GCC travelers. TypeScript monorepo (Bun): React 19, AdonisJS 7, PostgreSQL, Redis, Meilisearch. Four hotel supply providers behind one layer, fail-open Redis caching, Revolut payments. Self-hosted on Hetzner (Coolify, Traefik, Woodpecker CI, Prometheus/Grafana). Measured 30-day uptime in November 2026: 100% website, 99.99% API.
+
 ### Regional Church System (2023–Present)
-Multi-tenant church management platform serving 24 churches with 1,000+ daily users. Built with Laravel, FilamentPHP, React, MySQL, Docker, and Redis.
+Multi-tenant Arabic RTL church management platform serving 24 churches with 1,000+ daily users. Built with Laravel, FilamentPHP, Livewire, MySQL, Meilisearch, Redis, and Docker.
+
+### Nassaq / نسق (2025–2026)
+Graduation project (rated Excellent): exam-timetabling desktop app for a university exam office. Cut final-exam scheduling from about 4 weeks of manual work to under 3 minutes. Python, OR-Tools CP-SAT, FastAPI, React, Tauri.
 
 ### Hessah System (2024–2025)
-EdTech SaaS for private tutors. Attendance, payments, exam analytics, parent notifications. Laravel, FilamentPHP.
-
-### ALReserve (2026–Present)
-Luxury accommodation booking platform for GCC travelers. React 19, Hono, Bun, Supabase, TypeScript monorepo.
+EdTech SaaS for private tutors. Attendance, payments, exam analytics, parent notifications. Laravel, FilamentPHP, Livewire.
 
 ## Teaching
 
-Mentored 70+ students across 5+ institutions including AMIT Learning, Konecta, StemEC, and Senior Steps. Taught full-stack development, microservices, Java, Spring Boot, C#, .NET, React, Laravel, and Node.js.
+Mentored 300+ students across 5+ institutions including AMIT Learning, Konecta, StemEC, and Senior Steps. Taught full-stack development, microservices, Java, Spring Boot, C#, .NET, React, Laravel, and Node.js.
 
 ## Current Status
 
