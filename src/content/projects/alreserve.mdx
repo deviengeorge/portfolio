@@ -1,14 +1,14 @@
 ---
 title: "ALReserve"
 description: "A membership-based luxury accommodation booking platform for GCC travelers visiting the UK, USA, and Europe, featuring real-time hotel search and RTL-first internationalization."
-tech: ["React 19", "Hono", "Bun", "Supabase", "TypeScript", "Drizzle ORM", "PostgreSQL", "Redis", "Docker", "Playwright"]
+tech: ["React 19", "AdonisJS", "Bun", "TypeScript", "PostgreSQL", "Redis", "Meilisearch", "Coolify", "Traefik", "Docker", "Playwright"]
 role: "Full Stack Software Engineer"
 period: "Apr 2026 – Present"
 featured: true
 order: 3
 ---
 
-ALReserve is a membership-based luxury accommodation booking platform designed for Gulf Cooperation Council (GCC) travelers seeking premium stays in the UK, USA, and Europe.
+[ALReserve](https://alreserve.com) is a membership-based luxury accommodation booking platform designed for Gulf Cooperation Council (GCC) travelers seeking premium stays in the UK, USA, and Europe.
 
 ## The Challenge
 
@@ -20,22 +20,25 @@ Building a full-stack platform with a TypeScript monorepo architecture, integrat
 
 ### Key Features
 
-- **Real-time Hotel Search** — Integration with HyperGuest and Amadeus APIs for availability and pricing
+- **Multi-provider Hotel Search** — HyperGuest, Hotelbeds, RateHawk, and Interhome behind one normalized provider layer, with Meilisearch-powered search and nightly booking reconciliation
 - **RTL-first Internationalization** — Arabic/English support using react-i18next and Tailwind logical properties
 - **Membership System** — Tiered access with exclusive rates and benefits
 - **Reservation Management** — End-to-end booking flow with confirmation and modification support
+- **Payments & Verification** — Revolut payments and identity verification before booking
+- **Notifications & Ops Alerts** — In-app and email notifications for booking and membership events (respecting member preferences), plus a Telegram bot that alerts the ops team when a booking needs a human
 - **Background Job Processing** — pg-boss for async tasks like email notifications and rate syncing
 
 ## Technical Architecture
 
 - **Frontend:** React 19 with TypeScript, Tailwind CSS, RTL-first design
-- **Backend:** Hono framework running on Bun runtime for maximum performance
-- **Database:** Supabase (PostgreSQL) with Drizzle ORM for type-safe queries
-- **Caching:** Redis for rate caching and session management
-- **Infrastructure:** Docker-based deployments with Biome linting
-- **Testing:** Playwright for end-to-end testing
+- **Backend:** AdonisJS 7 REST API on Node (migrated from an earlier Hono/Bun prototype), Lucid ORM, pg-boss jobs
+- **Data:** PostgreSQL, Redis caching, Meilisearch for search; own password/session auth, with Supabase kept for storage
+- **Infrastructure:** Self-hosted on Hetzner: three servers (app, data, auth) on a private network, deployed with Coolify and Traefik with automatic TLS
+- **CI/CD & Ops:** Woodpecker CI, Prometheus and Grafana monitoring, firewall rules, image CDN, scripted database backups with restore tooling
+- **Internal Tools:** Go terminal admin app (Bubble Tea) for bookings, isolated per-provider test environments, Playwright demo-video recorder
+- **Quality:** Biome, Japa and bun:test suites, Playwright E2E, pre-commit checks with lefthook
 - **Architecture:** TypeScript monorepo with shared types and utilities
 
 ## Current Status
 
-Active development — building core booking flow, membership system, and payment integration.
+Live at [alreserve.com](https://alreserve.com) and in active development.
