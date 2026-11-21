@@ -37,6 +37,12 @@ Graduation project (rated Excellent): exam-timetabling desktop app for a univers
 ### Hessah System (2024–2025)
 EdTech SaaS for private tutors. Attendance, payments, exam analytics, parent notifications. Laravel, FilamentPHP, Livewire.
 
+### Taswib / تصويب (2026) — https://github.com/deviengeorge/taswib
+Open-source Windows tray app that fixes text typed in the wrong keyboard layout (Arabic and English) with one key. C#, .NET 8, Velopack auto-update. MIT licensed.
+
+### sshm (2026) — https://github.com/deviengeorge/sshm
+Open-source Bash CLI for SSH with Bitwarden-stored credentials, tunnel presets, and multi-tunnel support.
+
 ## Teaching
 
 Mentored 300+ students across 5+ institutions including AMIT Learning, Konecta, StemEC, and Senior Steps. Taught full-stack development, microservices, Java, Spring Boot, C#, .NET, React, Laravel, and Node.js.

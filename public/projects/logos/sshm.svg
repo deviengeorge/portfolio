@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="sshm logo">
+  <rect width="128" height="128" rx="24" fill="#1c1917"/>
+  <path d="M30 44l26 20-26 20" fill="none" stroke="#d97706" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M66 86h34" stroke="#fafaf9" stroke-width="10" stroke-linecap="round"/>
+</svg>

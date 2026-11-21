@@ -35,7 +35,14 @@ const { Content } = await render(project);
 
     <header class="mb-12">
       <p class="text-sm uppercase tracking-widest text-stone-500 dark:text-stone-400 mb-3">{project.data.period}</p>
-      <h1 class="text-4xl md:text-5xl font-serif text-stone-900 dark:text-stone-100 mb-4">{project.data.title}</h1>
+      <div class="flex items-center gap-4 mb-4">
+        {project.data.logo && (
+          <span class="inline-flex items-center justify-center h-14 min-w-14 px-2 rounded-md bg-white border border-stone-200 dark:border-stone-700 shrink-0">
+            <img src={project.data.logo} alt={`${project.data.title} logo`} class="h-10 w-auto max-w-40 object-contain" loading="eager" />
+          </span>
+        )}
+        <h1 class="text-4xl md:text-5xl font-serif text-stone-900 dark:text-stone-100">{project.data.title}</h1>
+      </div>
       <p class="text-lg text-stone-600 dark:text-stone-400 leading-relaxed">{project.data.description}</p>
 
       <div class="mt-6 flex flex-wrap gap-2">
@@ -47,6 +54,12 @@ const { Content } = await render(project);
       </div>
 
       <p class="text-sm text-stone-500 dark:text-stone-400 mt-4">Role: {project.data.role}</p>
+      {(project.data.liveUrl || project.data.githubUrl) && (
+        <p class="text-sm mt-3 flex flex-wrap gap-5">
+          {project.data.liveUrl && <a href={project.data.liveUrl} target="_blank" rel="noopener noreferrer" class="text-accent dark:text-accent-light hover:underline">Live site ↗</a>}
+          {project.data.githubUrl && <a href={project.data.githubUrl} target="_blank" rel="noopener noreferrer" class="text-accent dark:text-accent-light hover:underline">Source on GitHub ↗</a>}
+        </p>
+      )}
     </header>
 
     <article class="prose prose-stone dark:prose-invert prose-headings:font-serif prose-headings:font-normal prose-a:text-accent dark:prose-a:text-accent-light max-w-none">

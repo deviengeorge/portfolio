@@ -1,0 +1,28 @@
+---
+title: "sshm"
+description: "Open-source Bash CLI for connecting to servers over SSH with credentials stored in Bitwarden: interactive selection, tunnel presets, and multi-tunnel support."
+tech: ["Bash", "Bitwarden CLI", "gum", "SSH"]
+role: "Creator & Maintainer"
+period: "2026"
+logo: "/projects/logos/sshm.svg"
+githubUrl: "https://github.com/deviengeorge/sshm"
+featured: true
+order: 6
+---
+
+sshm removes the copy-paste step from SSH. Server credentials live in your Bitwarden vault; sshm lets you pick a folder and a server, then connects.
+
+## Features
+
+- **Interactive selection** — fuzzy-search folders and servers with gum
+- **Tunnel presets** — save recurring tunnels (database, web, Redis) as Bitwarden custom fields and launch them by name
+- **Multi-tunnel** — run several tunnels at once with per-tunnel status
+- **Remote commands** — run a command on a server without opening a shell
+- **Clipboard copy** — copy a server password on Wayland or X11
+- **Session caching** — unlock the vault once and reuse the session token
+
+## Engineering
+
+- **Stack:** modular Bash (separate files for actions, config, credentials, data, picker, and session), with shell completions
+- **Dependencies:** bitwarden-cli, jq, gum, sshpass
+- **Why:** I manage several servers for ALReserve and client projects, and wanted credentials out of notes and shell history

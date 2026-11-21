@@ -5,6 +5,7 @@ const projects = [
     description: 'Multi-tenant platform managing congregational data across 24 churches with 1,000+ daily users.',
     tech: 'Laravel, FilamentPHP, Livewire, MySQL, Docker',
     slug: 'regional-church-system',
+    logo: '/projects/logos/church-app.png',
   },
   {
     title: 'Hessah System',
@@ -17,12 +18,28 @@ const projects = [
     description: 'Membership-based luxury accommodation booking platform for GCC travelers visiting UK, USA, and Europe.',
     tech: 'React 19, AdonisJS, PostgreSQL, Meilisearch, TypeScript, Bun',
     slug: 'alreserve',
+    logo: '/projects/logos/alreserve.svg',
   },
   {
     title: 'Nassaq (نسق)',
     description: 'Exam-timetabling desktop app for a university exam office. Final-exam scheduling cut from about 4 weeks to under 3 minutes.',
     tech: 'Python, OR-Tools CP-SAT, FastAPI, React, Tauri',
     slug: 'nassaq',
+    logo: '/projects/logos/nassaq.png',
+  },
+  {
+    title: 'Taswib (تصويب)',
+    description: 'Open-source Windows tray app that fixes text typed in the wrong keyboard layout (Arabic ⇄ English) with one key.',
+    tech: 'C#, .NET 8, Velopack, GitHub Actions',
+    slug: 'taswib',
+    logo: '/projects/logos/taswib.png',
+  },
+  {
+    title: 'sshm',
+    description: 'Open-source Bash CLI for SSH with Bitwarden-stored credentials, tunnel presets, and multi-tunnel support.',
+    tech: 'Bash, Bitwarden CLI, gum',
+    slug: 'sshm',
+    logo: '/projects/logos/sshm.svg',
   },
 ];
 ---
@@ -32,11 +49,14 @@ const projects = [
   <h2 class="text-3xl md:text-4xl font-serif text-stone-900 dark:text-stone-100 mb-12">Projects</h2>
 
   <div class="divide-y divide-stone-200 dark:divide-stone-800 border-t border-stone-200 dark:border-stone-800">
-    {projects.map(({ title, description, tech, slug }) => (
+    {projects.map(({ title, description, tech, slug, logo }) => (
       <a
         href={`/projects/${slug}`}
         class="group flex flex-col md:flex-row md:items-center justify-between py-6 md:py-8 hover:pl-2 transition-all"
       >
+        <span class="hidden md:inline-flex items-center justify-center h-14 min-w-14 px-2 mr-6 rounded-md bg-white border border-stone-200 dark:border-stone-700 shrink-0">
+          <img src={logo} alt={`${title} logo`} class="h-9 w-auto max-w-32 object-contain" loading="lazy" />
+        </span>
         <div class="flex-1">
           <h3 class="text-xl font-serif text-stone-900 dark:text-stone-100 group-hover:text-accent dark:group-hover:text-accent-light transition-colors">
             {title}

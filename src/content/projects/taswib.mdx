@@ -1,0 +1,31 @@
+---
+title: "Taswib (تصويب)"
+description: "Open-source Windows tray app that fixes text typed in the wrong keyboard layout (Arabic ⇄ English) with one key. Auto-updating, MIT licensed."
+tech: ["C#", ".NET 8", "WinForms", "Velopack", "GitHub Actions"]
+role: "Creator & Maintainer"
+period: "2026"
+logo: "/projects/logos/taswib.png"
+githubUrl: "https://github.com/deviengeorge/taswib"
+featured: true
+order: 5
+---
+
+Taswib fixes the most common typing mistake for bilingual users: writing in the wrong keyboard layout. Press one key and the text you typed (`high fd;`) becomes the text you meant (`اهلا بيك`), and the layout switches.
+
+![How Taswib works: type on the wrong layout, press Insert, text is fixed in place](/projects/taswib-demo.png)
+
+## Features
+
+- **One-key fix** — select or take the last typed text, press the shortcut, and it is converted in place
+- **Arabic text cleanup** — a second hotkey fixes Arabic punctuation and letter forms
+- **Egyptian Arabic interface** — full right-to-left settings window and tray menu
+- **Private by design** — clipboard writes are hidden from Windows clipboard history and cloud sync
+
+![Taswib settings window (design mockup)](/projects/taswib-settings.png)
+
+## Engineering
+
+- **Stack:** C# and .NET 8 (WinForms), a single-file tray app
+- **Releases:** GitHub Actions builds each tag and publishes with Velopack, so installed copies update themselves; delta packages are about 125 KB instead of the full 68 MB
+- **Install:** a one-line PowerShell installer, plus a bilingual README
+- **License:** MIT
