@@ -1,0 +1,38 @@
+---
+title: "Nassaq (نسق)"
+description: "Arabic exam-timetabling desktop app for the Faculty of Science exam office. Cut final-exam scheduling from about 4 weeks of manual work to under 3 minutes."
+tech: ["Python", "OR-Tools CP-SAT", "FastAPI", "React", "Tauri", "Typst", "pytest"]
+role: "Designer & Developer (Graduation Project, rated Excellent)"
+period: "2025 – 2026"
+featured: true
+order: 4
+---
+
+Nassaq turns the exam office's registration spreadsheets into a checked exam timetable, with room seating and invigilator assignments, in a Windows desktop app that works offline. It was my graduation project at Helwan University, rated **Excellent**, and shipped to the Faculty of Science exam office as v1.0. The source is private.
+
+## The Challenge
+
+A final-exam timetable is more than a list of dates. A student cannot sit two exams at once. A large course needs enough seats, sometimes across several rooms. Every occupied room needs invigilators. One late change sends the office back through spreadsheets, room lists, and printed reports. Doing this by hand took about **4 weeks**.
+
+## Result
+
+- Final-exam scheduling went from about **4 weeks** of manual work to **under 3 minutes**
+- Every enabled hard rule is verified automatically, so no student clashes and no unseated students
+- A late change no longer means starting over: adjustment mode keeps the previous schedule wherever the rules allow
+
+## What makes it good
+
+- **Hard rules, independently checked** — student clashes, room capacity and availability, and invigilator coverage are re-verified by a separate validator before any timetable is saved
+- **Real preferences** — student rest, daily and weekly exam limits, morning preference, fewer buildings per course, with soft penalties that grow with every extra exam on a day
+- **Adjust, don't redo** — existing timetables become the starting point for changes, with completed solves kept in history
+- **Honest solver** — a staged CP-SAT optimizer that never claims global optimality, and treats a time limit as "no answer yet", not "impossible"
+- **Output people use** — weekly views by room, invigilator, or student; per-person PDFs and Excel exports
+- **Built for the office** — Arabic RTL interface, Excel and xls imports (including the university registration system export), local data, and a Windows installer that needs no Python or Node.js
+
+## Technical Architecture
+
+- **Engine:** Python with OR-Tools CP-SAT in staged optimization, and Pydantic models
+- **API:** FastAPI on loopback, local single-operator design
+- **UI:** React with an Arabic right-to-left layout, wrapped as a desktop app with Tauri
+- **Reports:** Typst for Arabic PDF export with correct shaping, openpyxl for Excel
+- **Quality:** pytest suites for solver, parsers, models, API, and desktop packaging
