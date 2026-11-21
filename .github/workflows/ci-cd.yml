@@ -47,5 +47,6 @@ jobs:
     steps:
       - name: Trigger Coolify deployment
         run: |
-          curl -s -X POST "${{ secrets.COOLIFY_WEBHOOK }}" \
+          # -f fails on HTTP errors, --max-time stops a blocked network from hanging for minutes
+          curl -fsS --max-time 60 -X POST "${{ secrets.COOLIFY_WEBHOOK }}" \
             -H "Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}"
