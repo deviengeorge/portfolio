@@ -32,7 +32,9 @@ Building a full-stack platform with a TypeScript monorepo architecture, integrat
 
 - **Frontend:** React 19 with TypeScript, Tailwind CSS, RTL-first design
 - **Backend:** AdonisJS 7 REST API on Node (migrated from an earlier Hono/Bun prototype), Lucid ORM, pg-boss jobs
-- **Data:** PostgreSQL, Redis caching, Meilisearch for search; own password/session auth, with Supabase kept for storage
+- **Data:** PostgreSQL, Meilisearch for search; own password/session auth, with Supabase kept for storage
+- **Caching:** Fail-open Redis JSON caches: if Redis is down, reads become misses and requests still resolve from the source. TTLs follow each data type: 60 s per-hotel live availability (protects supplier rate limits), 10 min search availability, 24 h nearby places, exchange rates with a week-long stale fallback
+- **Third-party services:** Revolut (payments and webhooks), Didit (identity verification), Google Places, Geoapify, GeoNames, OpenStreetMap Overpass, Mapbox, OpenRouter (LLM), SMTP mail, Sentry
 - **Infrastructure:** Self-hosted on Hetzner: three servers (app, data, auth) on a private network, deployed with Coolify and Traefik with automatic TLS
 - **CI/CD & Ops:** Woodpecker CI, Prometheus and Grafana monitoring, firewall rules, image CDN, scripted database backups with restore tooling
 - **Internal Tools:** Go terminal admin app (Bubble Tea) for bookings, isolated per-provider test environments, Playwright demo-video recorder
