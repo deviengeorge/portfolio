@@ -63,7 +63,7 @@ const siteName = 'Devien George';
     <script is:inline>
       (function () {
         const stored = localStorage.getItem('theme');
-        if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        if (stored === 'dark') {
           document.documentElement.classList.add('dark');
         }
         document.documentElement.classList.remove('no-js');
