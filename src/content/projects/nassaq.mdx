@@ -10,6 +10,8 @@ order: 4
 
 Nassaq turns the exam office's registration spreadsheets into a checked exam timetable, with room seating and invigilator assignments, in a Windows desktop app that works offline. It was my graduation project at Helwan University, rated **Excellent**, and shipped to the Faculty of Science exam office as v1.0. The source is private.
 
+![Nassaq timetable with synthetic courses and room assignments](/projects/nassaq-timetable.png)
+
 ## The Challenge
 
 A final-exam timetable is more than a list of dates. A student cannot sit two exams at once. A large course needs enough seats, sometimes across several rooms. Every occupied room needs invigilators. One late change sends the office back through spreadsheets, room lists, and printed reports. Doing this by hand took about **4 weeks**.
@@ -28,6 +30,8 @@ A final-exam timetable is more than a list of dates. A student cannot sit two ex
 - **Honest solver** — a staged CP-SAT optimizer that never claims global optimality, and treats a time limit as "no answer yet", not "impossible"
 - **Output people use** — weekly views by room, invigilator, or student; per-person PDFs and Excel exports
 - **Built for the office** — Arabic RTL interface, Excel and xls imports (including the university registration system export), local data, and a Windows installer that needs no Python or Node.js
+
+![Nassaq timetable stats: student rest, day load, seat use, and invigilator duties (synthetic data)](/projects/nassaq-stats.png)
 
 ## Technical Architecture
 

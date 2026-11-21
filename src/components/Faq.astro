@@ -1,0 +1,57 @@
+---
+const faqs = [
+  {
+    q: 'Who is Devien George?',
+    a: 'Devien George is a full-stack software engineer based in Cairo, Egypt, with 4+ years of experience building production web platforms in React, Node.js, TypeScript, and PHP/Laravel. He graduated in Computer Science from Helwan University in 2026.',
+  },
+  {
+    q: 'What is Devien George working on now?',
+    a: 'He is the lead engineer on ALReserve (alreserve.com), a live membership-based luxury hotel booking platform for GCC travelers. He built the React and AdonisJS application, the multi-provider hotel integrations, and the self-hosted Hetzner infrastructure.',
+  },
+  {
+    q: 'What has he built?',
+    a: 'A church management system used by 24 churches with 1,000+ daily users, the Hessah EdTech SaaS for private tutors, ALReserve, and Nassaq, a university exam-scheduling app that cut final-exam scheduling from about 4 weeks of manual work to under 3 minutes.',
+  },
+  {
+    q: 'Which technologies does he use?',
+    a: 'Laravel, FilamentPHP, Livewire, Node.js (AdonisJS, Express), TypeScript, React, Next.js, PostgreSQL, MySQL, Redis, Meilisearch, Docker, Coolify, Traefik, and Woodpecker CI.',
+  },
+  {
+    q: 'Does he teach?',
+    a: 'Yes. He has mentored 300+ students across 5+ institutions, including AMIT Learning, Konecta, and StemEC, and designed a 7-week full-stack and microservices internship.',
+  },
+  {
+    q: 'Is he available for work?',
+    a: 'Yes. He is open to remote full-stack roles, contract work, and technical consulting. Email deviengeorge99@gmail.com.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+---
+
+<section id="faq" class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+  <p class="text-sm uppercase tracking-widest text-stone-500 dark:text-stone-400 mb-3">Quick answers</p>
+  <h2 class="text-3xl md:text-4xl font-serif text-stone-900 dark:text-stone-100 mb-12">FAQ</h2>
+
+  <div class="divide-y divide-stone-200 dark:divide-stone-800 border-y border-stone-200 dark:border-stone-800">
+    {faqs.map(({ q, a }) => (
+      <details class="group py-5">
+        <summary class="cursor-pointer list-none flex items-center justify-between gap-4 text-lg font-serif text-stone-900 dark:text-stone-100">
+          {q}
+          <span class="text-stone-400 group-open:rotate-45 transition-transform text-xl leading-none">+</span>
+        </summary>
+        <p class="mt-3 text-stone-600 dark:text-stone-400 leading-relaxed max-w-3xl">{a}</p>
+      </details>
+    ))}
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+</section>
