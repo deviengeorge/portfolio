@@ -19,8 +19,8 @@
 - Backend: Laravel, FilamentPHP, Livewire, Node.js (AdonisJS, Express), TypeScript, .NET 8
 - Frontend: React, Next.js, Vue.js / Nuxt, Angular, Tailwind CSS
 - Data: PostgreSQL, MySQL, Redis, Meilisearch
-- DevOps: Docker, Coolify, Traefik, Woodpecker CI, GitHub Actions, Jenkins, Kubernetes, Prometheus, Grafana
-- Taught / familiar with: Java, Spring Boot, .NET microservices, NestJS, MongoDB, Elasticsearch, Django
+- DevOps: Docker, Coolify, Traefik, Woodpecker CI, GitHub Actions, Prometheus, Grafana
+- Taught / familiar with: Java, Spring Boot, .NET microservices, NestJS, MongoDB, Elasticsearch, Django, Jenkins, Kubernetes
 - Architecture: Microservices, Event-Driven Systems, Multi-Tenant Platforms
 
 ## Key Projects
