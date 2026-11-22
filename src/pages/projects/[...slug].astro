@@ -37,9 +37,7 @@ const { Content } = await render(project);
       <p class="text-sm uppercase tracking-widest text-stone-500 dark:text-stone-400 mb-3">{project.data.period}</p>
       <div class="flex items-center gap-4 mb-4">
         {project.data.logo && (
-          <span class="inline-flex items-center justify-center h-14 min-w-14 px-2 rounded-md bg-white border border-stone-200 dark:border-stone-700 shrink-0">
-            <img src={project.data.logo} alt={`${project.data.title} logo`} class="h-10 w-auto max-w-40 object-contain" loading="eager" />
-          </span>
+          <img src={project.data.logo} alt={`${project.data.title} logo`} class="h-14 w-14 rounded-xl shrink-0" loading="eager" />
         )}
         <h1 class="text-4xl md:text-5xl font-serif text-stone-900 dark:text-stone-100">{project.data.title}</h1>
       </div>

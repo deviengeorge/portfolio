@@ -9,7 +9,7 @@ const projects = [
   },
   {
     title: 'Hessah System',
-    description: 'SaaS for private tutors in Egypt: attendance, payments, and exam performance in one dashboard, with reports shared with parents and a customizable dashboard per tutor.',
+    description: 'Experimental SaaS for private tutors in Egypt (never launched): attendance, payments, and exam performance in one dashboard, with reports for parents. Built to test the idea.',
     tech: 'Laravel, FilamentPHP, Livewire, Tailwind CSS',
     slug: 'hessah-system',
   },
@@ -18,7 +18,7 @@ const projects = [
     description: 'Live at alreserve.com. As lead engineer I built four hotel supply providers behind one search and booking layer, Revolut payments, and self-hosted infrastructure with 99.99% measured API uptime.',
     tech: 'React 19, AdonisJS, PostgreSQL, Meilisearch, TypeScript, Bun',
     slug: 'alreserve',
-    logo: '/projects/logos/alreserve.svg',
+    logo: '/projects/logos/alreserve.png',
   },
   {
     title: 'Nassaq (نسق)',
@@ -39,7 +39,7 @@ const projects = [
     description: 'Pick a server from your Bitwarden vault and connect, with saved tunnel presets and multi-tunnel support. Open-source Bash CLI.',
     tech: 'Bash, Bitwarden CLI, gum',
     slug: 'sshm',
-    logo: '/projects/logos/sshm.svg',
+    logo: '/projects/logos/sshm.png',
   },
 ];
 ---
@@ -54,9 +54,7 @@ const projects = [
         href={`/projects/${slug}`}
         class="group flex flex-col md:flex-row md:items-center justify-between py-6 md:py-8 hover:pl-2 transition-all"
       >
-        <span class="hidden md:inline-flex items-center justify-center h-14 min-w-14 px-2 mr-6 rounded-md bg-white border border-stone-200 dark:border-stone-700 shrink-0">
-          <img src={logo} alt={`${title} logo`} class="h-9 w-auto max-w-32 object-contain" loading="lazy" />
-        </span>
+        <img src={logo} alt={`${title} logo`} class="hidden md:block h-14 w-14 rounded-xl mr-6 shrink-0" loading="lazy" />
         <div class="flex-1">
           <h3 class="text-xl font-serif text-stone-900 dark:text-stone-100 group-hover:text-accent dark:group-hover:text-accent-light transition-colors">
             {title}

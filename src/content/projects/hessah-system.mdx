@@ -1,6 +1,6 @@
 ---
 title: "Hessah System"
-description: "A full-featured EdTech SaaS platform for private tutors in Egypt to manage student attendance, finances, exam performance, and parent communication."
+description: "An experimental SaaS for private tutors in Egypt to manage attendance, payments, exam performance, and parent communication. Built to test the product idea, never launched."
 tech: ["Laravel", "FilamentPHP", "Livewire", "Tailwind CSS", "MySQL", "Redis"]
 role: "Full-Stack Developer & Product Owner"
 period: "2024 – 2025"
@@ -8,35 +8,39 @@ featured: true
 order: 2
 ---
 
-Hessah System is a SaaS platform built specifically for private tutors in Egypt who need professional tools to manage their teaching business — from scheduling and attendance to payments and performance tracking.
+Hessah System was a SaaS experiment: a management tool for private tutors in Egypt, from attendance and payments to exam performance and parent reports. I built it to test whether the idea was worth turning into a product. It was **never launched**.
 
-## The Challenge
+**At a glance**
 
-Private tutors in Egypt typically manage dozens of students across multiple classes using notebooks, WhatsApp groups, and mental tracking. This leads to missed payments, inaccurate attendance records, and no visibility into student performance trends.
+| | |
+|---|---|
+| **Role** | Full-stack developer and product owner |
+| **Status** | Experiment, never launched |
+| **Goal** | Test a SaaS idea end to end: product, build, and business |
+| **Stack** | Laravel, FilamentPHP, Livewire, MySQL, Redis |
 
-## Solution
+## The Idea
 
-Built a comprehensive platform that gives tutors a professional management system with minimal setup friction. Each tutor gets a customizable dashboard with their branding.
+Private tutors in Egypt often manage dozens of students across several classes with notebooks and WhatsApp groups. The hypothesis was that a simple, branded dashboard could replace that: fewer missed payments, accurate attendance, and a view of each student's progress.
 
-### Key Features
+## What I Built
 
-- **Attendance Tracking** — Per-class, per-session records with absence notifications to parents
-- **Payment Management** — Fee tracking, payment history, overdue alerts, and financial reports
-- **Exam Performance Analytics** — Score entry with trend visualization and comparative analysis
-- **Parent Communication** — Automated reports sharing student progress
-- **Multi-class Support** — Manage different subjects, schedules, and student groups
-- **Customizable Dashboard** — Per-tutor branding with icons and color themes
+- **Attendance tracking** — per-class, per-session records with absence notifications to parents
+- **Payment management** — fee tracking, payment history, and overdue alerts
+- **Exam performance** — score entry with trends and comparisons
+- **Parent communication** — automated progress reports
+- **Multi-class support** — different subjects, schedules, and student groups
+- **Per-tutor dashboard** — branding, icons, and color themes, with multi-role access
 
 ## Technical Architecture
 
-- **Backend:** Laravel with FilamentPHP for rapid admin development
-- **Frontend:** Livewire for reactive UI without JavaScript complexity
-- **Database:** MySQL with optimized queries for analytics aggregation
-- **Caching:** Redis for session management and frequently accessed data
-- **Notifications:** Laravel Queues & Events for real-time parent notifications
+- **Backend:** Laravel with FilamentPHP for fast admin development
+- **Frontend:** Livewire for a reactive UI without a separate JavaScript app
+- **Data:** MySQL, with Redis for sessions and frequently used data
+- **Notifications:** Laravel queues and events for parent notifications
 
-## Impact
+## What I Learned
 
-- Enabled data-driven teaching decisions through performance analytics
-- Improved payment collection rates through automated reminders
-- Gained hands-on experience in SaaS product management and business strategy
+- How to scope a SaaS from idea to working product on my own
+- Business strategy, marketing, and product management for a software product
+- That building the product is the smaller half of a SaaS: finding and keeping users is the larger half
