@@ -1,6 +1,6 @@
 # Devien George — Full-Stack Software Engineer
 
-> Devien George is a Full-Stack Software Engineer with 4+ years of experience based in Cairo, Egypt. He builds and scales production web platforms, having served 1,000+ daily users across 24 organizations.
+> Devien George is a Full-Stack Software Engineer with 4+ years of experience based in Cairo, Egypt. He builds and scales production web platforms, having built systems used by 24 organizations with 1,000+ users.
 
 ## About
 
@@ -29,7 +29,7 @@
 Live membership-based luxury accommodation booking platform for GCC travelers. TypeScript monorepo (Bun): React 19, AdonisJS 7, PostgreSQL, Redis, Meilisearch. Four hotel supply providers behind one layer, fail-open Redis caching, Revolut payments. Self-hosted on Hetzner (Coolify, Traefik, Woodpecker CI, Prometheus/Grafana). Measured 30-day uptime in November 2026: 100% website, 99.99% API.
 
 ### Regional Church System (2023–Present)
-Multi-tenant Arabic RTL church management platform serving 24 churches with 1,000+ daily users. Built with Laravel, FilamentPHP, Livewire, MySQL, Meilisearch, Redis, and Docker.
+Multi-tenant Arabic RTL church management platform serving 24 churches with 1,000+ users. Built with Laravel, FilamentPHP, Livewire, MySQL, Meilisearch, and Docker.
 
 ### Nassaq / نسق (2025–2026)
 Graduation project (rated Excellent): exam-timetabling desktop app for a university exam office. Cut final-exam scheduling from about 4 weeks of manual work to under 3 minutes. Python, OR-Tools CP-SAT, FastAPI, React, Tauri.
