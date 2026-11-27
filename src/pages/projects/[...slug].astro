@@ -14,12 +14,17 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
+const url = new URL(`/projects/${project.id}`, Astro.site).href;
+const product = project.data.liveUrl ?? project.data.githubUrl;
 ---
 
 <BaseLayout
   title={`${project.data.title} — Devien George`}
   description={project.data.description}
   type="article"
+  ogImage={`/og/projects/${project.id}.png`}
+  ogImageAlt={`${project.data.title} case study by Devien George`}
+  tags={project.data.tech}
 >
   <Nav />
   <main class="max-w-3xl mx-auto px-6 py-16 md:py-24">
@@ -66,16 +71,36 @@ const { Content } = await render(project);
   </main>
   <Footer />
 
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    "name": project.data.title,
-    "description": project.data.description,
-    "author": {
-      "@type": "Person",
-      "name": "Devien George"
+  <script type="application/ld+json" set:html={JSON.stringify([
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": `${url}#case-study`,
+      "headline": `${project.data.title}: case study`,
+      "description": project.data.description,
+      "image": new URL(`/og/projects/${project.id}.png`, Astro.site).href,
+      "url": url,
+      "mainEntityOfPage": url,
+      "inLanguage": "en",
+      "keywords": project.data.tech.join(', '),
+      "author": { "@id": "https://deviengeorge.me/#person", "@type": "Person", "name": "Devien George", "url": "https://deviengeorge.me" },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": project.data.title,
+        "description": project.data.description,
+        ...(product && { "url": product }),
+        "applicationCategory": "WebApplication",
+        "creator": { "@id": "https://deviengeorge.me/#person" }
+      }
     },
-    "dateCreated": project.data.period,
-    "keywords": project.data.tech.join(', ')
-  })} />
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://deviengeorge.me/" },
+        { "@type": "ListItem", "position": 2, "name": "Work", "item": "https://deviengeorge.me/#work" },
+        { "@type": "ListItem", "position": 3, "name": project.data.title, "item": url }
+      ]
+    }
+  ])} />
 </BaseLayout>

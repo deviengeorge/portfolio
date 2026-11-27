@@ -50,3 +50,14 @@ Mentored 300+ students across 5+ institutions including AMIT Learning, Konecta, 
 ## Current Status
 
 Available for full-stack engineering roles, contract work, and technical consulting. Open to remote positions worldwide.
+
+## Pages
+
+- [CV (PDF, always the latest version)](https://deviengeorge.me/cv)
+- [ALReserve case study](https://deviengeorge.me/projects/alreserve)
+- [Regional Church System case study](https://deviengeorge.me/projects/regional-church-system)
+- [Nassaq case study](https://deviengeorge.me/projects/nassaq)
+- [Hessah System case study](https://deviengeorge.me/projects/hessah-system)
+- [Taswib case study](https://deviengeorge.me/projects/taswib)
+- [sshm case study](https://deviengeorge.me/projects/sshm)
+- [Building Multi-Tenant Systems with Laravel (article)](https://deviengeorge.me/blog/building-multi-tenant-systems-with-laravel)
