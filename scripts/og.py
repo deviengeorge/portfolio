@@ -26,7 +26,7 @@ def frontmatter(path):
     return out
 
 HEAD = f"""<html><head>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&family=Noto+Naskh+Arabic:wght@600&display=swap" rel="stylesheet">
 <style>
 *{{margin:0;box-sizing:border-box}}
 body{{width:1200px;height:630px;border-top:6px solid {BLUE};background:#fafaf9;color:#1c1917;font-family:'DM Sans',sans-serif;position:relative;overflow:hidden}}
@@ -74,6 +74,24 @@ def cv():
  <img src="data:image/png;base64,{b64(PUB / 'cv/cv-preview.png')}" style="width:100%;display:block"></div>
 </body></html>"""
 
+def project_hook(fm):
+    """Case-study card that leads with the win: ogStat (giant number) and/or ogHook (headline)."""
+    logo = fm.get("logo")
+    head = (f'<div style="display:flex;align-items:center;gap:16px">'
+            f'<img src="data:image/png;base64,{b64(PUB / logo.lstrip("/"))}" style="width:52px;height:52px;border-radius:12px">'
+            f'<div><div style="font-size:24px;font-weight:700">{escape(fm["title"])}</div>'
+            f'<div class="eyebrow" style="font-size:14px">Case study · {escape(fm.get("period", ""))}</div></div></div>')
+    stat = (f'<div style="font-family:\'DM Serif Display\',\'Noto Naskh Arabic\',serif;font-size:{min(112, 2300 // len(fm["ogStat"]))}px;line-height:1.15;margin-top:30px;color:{BLUE};white-space:nowrap">{escape(fm["ogStat"])}</div>'
+            if fm.get("ogStat") else "")
+    hook_size = 40 if stat else 72
+    hook = (f'<div style="font-family:\'DM Serif Display\',serif;font-size:{hook_size}px;line-height:1.1;margin-top:{20 if stat else 40}px">{escape(fm["ogHook"])}</div>')
+    sub = f'<div style="font-size:22px;color:#78716c;margin-top:20px">{escape(fm.get("ogSub", ""))}</div>'
+    return HEAD + f"""
+<div class="bar"><span class="logo">DG</span><span class="host">deviengeorge.me/projects</span></div>
+<div style="position:absolute;left:72px;right:72px;top:118px">{head}{stat}{hook}{sub}</div>
+<div style="position:absolute;right:72px;bottom:44px;font-size:19px;color:#57534e">by <b style="color:#1c1917;font-weight:500">Devien George</b></div>
+</body></html>"""
+
 def page(kind, label, fm, foot):
     logo = fm.get("logo")
     logo_html = (f'<img src="data:image/png;base64,{b64(PUB / logo.lstrip("/"))}" style="width:96px;height:96px;border-radius:20px">'
@@ -97,7 +115,8 @@ def page(kind, label, fm, foot):
 jobs = [(site(), PUB / "og-image.png"), (cv(), PUB / "cv/cv-og.png")]
 for f in sorted((ROOT / "src/content/projects").glob("*.md*")):
     fm = frontmatter(f)
-    jobs.append((page("projects", f"Case study · {fm.get('period', '')}", fm, fm.get("tech", [])), PUB / f"og/projects/{f.stem}.png"))
+    html = project_hook(fm) if fm.get("ogHook") else page("projects", f"Case study · {fm.get('period', '')}", fm, fm.get("tech", []))
+    jobs.append((html, PUB / f"og/projects/{f.stem}.png"))
 for f in sorted((ROOT / "src/content/blog").glob("*.md*")):
     fm = frontmatter(f)
     if fm.get("draft") is True: continue

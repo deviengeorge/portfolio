@@ -15,6 +15,9 @@ const projects = defineCollection({
     githubUrl: z.string().optional(),
     featured: z.boolean().default(false),
     order: z.number().default(0),
+    ogHook: z.string().optional(), // headline on the OG image (the win, not the description)
+    ogStat: z.string().optional(), // optional giant number on the OG image
+    ogSub: z.string().optional(),
   }),
 });
 
