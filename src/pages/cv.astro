@@ -1,0 +1,25 @@
+---
+// Stable CV link (LinkedIn Featured, applications). LinkedIn needs OG tags for a preview,
+// so this page carries them and forwards to the latest PDF.
+const pdf = '/cv/devien-george-cv-full-stack.pdf';
+const title = 'Devien George — CV';
+const desc = 'Full-Stack Software Engineer: Node.js, TypeScript, React, Next.js, Laravel, AWS. Cairo, Egypt.';
+const img = new URL('/cv/cv-preview.png', Astro.site).href;
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={desc} />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={desc} />
+<meta property="og:url" content={new URL('/cv', Astro.site).href} />
+<meta property="og:image" content={img} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta http-equiv="refresh" content={`0; url=${pdf}`} />
+</head>
+<body><p><a href={pdf}>Open Devien George's CV (PDF)</a></p></body>
+</html>
