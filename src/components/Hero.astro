@@ -6,21 +6,26 @@ const cvs = [
   { label: 'DevOps / Infrastructure', file: 'devien-george-cv-devops.pdf' },
   { label: 'Teaching / Instruction', file: 'devien-george-cv-teaching.pdf' },
 ];
+const systems = [
+  { name: 'ALReserve', role: 'Luxury booking platform · lead engineer', stat: '99.99% uptime' },
+  { name: 'Church platform', role: 'Management system · 1,000+ users', stat: '24 churches' },
+  { name: 'Nassaq', role: 'University exam scheduling', stat: '4 weeks → 3 min' },
+];
 ---
-
-<section class="max-w-6xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-24">
-  <p class="text-sm uppercase tracking-widest text-stone-500 dark:text-stone-400 mb-4">Full-Stack Software Engineer · Cairo, Egypt (EET)</p>
-  <h1 class="text-5xl md:text-7xl font-serif text-stone-900 dark:text-stone-100 mb-6">
-    Devien George
-  </h1>
-  <p class="text-lg md:text-xl text-stone-600 dark:text-stone-400 max-w-2xl leading-relaxed mb-6">
-    I build and scale production web platforms. 4+ years crafting systems used by 1,000+ people daily — from church management and university exam scheduling to a live luxury booking platform I lead.
-  </p>
-  <p class="inline-flex items-center gap-2 text-sm text-stone-700 dark:text-stone-300 mb-10">
+<section class="relative overflow-hidden">
+  <div class="pointer-events-none absolute left-1/2 top-0 -z-10 h-[32rem] w-[60rem] -translate-x-1/2 rounded-full bg-amber-200/30 dark:bg-amber-500/10 blur-3xl" aria-hidden="true"></div>
+  <div class="max-w-5xl mx-auto px-6 pt-14 pb-16 md:pt-36 md:pb-28 text-center">
+  <p class="inline-flex items-center gap-2 text-stone-700 dark:text-stone-300 mb-8 border border-stone-300 dark:border-stone-700 rounded-full px-3 sm:px-4 py-1.5 text-xs sm:text-sm whitespace-nowrap bg-stone-50/70 dark:bg-stone-900/70">
     <span class="inline-block w-2 h-2 rounded-full bg-emerald-500" aria-hidden="true"></span>
     Open to remote full-stack roles and contract work
   </p>
-  <div class="flex flex-wrap items-center gap-4">
+  <p class="text-sm text-stone-500 dark:text-stone-400 mb-6"><span class="block sm:inline font-medium text-stone-900 dark:text-stone-100">Devien George<span class="hidden sm:inline"> —</span></span> Full-Stack Software Engineer · Cairo, Egypt (EET)</p>
+  <h1 class="text-[2.6rem] sm:text-6xl lg:text-7xl font-serif text-stone-900 dark:text-stone-100 leading-[1.05] mb-8 text-balance">
+    <span class="block">I build and scale</span>
+    <span class="block"><span class="italic text-amber-700 dark:text-amber-500">production</span> web platforms.</span>
+  </h1>
+  <p class="text-base md:text-xl text-stone-600 dark:text-stone-400 leading-relaxed mb-10 max-w-2xl mx-auto">4+ years crafting systems used by 1,000+ people daily — from church management and university exam scheduling to a live luxury booking platform I lead.</p>
+    <div class="flex flex-wrap items-center gap-4 justify-center">
     <a
       href="mailto:deviengeorge99@gmail.com?subject=Opportunity"
       class="inline-flex items-center gap-2 text-sm font-medium text-stone-50 dark:text-stone-900 bg-stone-900 dark:bg-stone-100 border border-stone-900 dark:border-stone-100 px-5 py-2.5 hover:bg-stone-700 dark:hover:bg-stone-300 transition-colors"
@@ -50,5 +55,6 @@ const cvs = [
         ))}
       </ul>
     </details>
+  </div>
   </div>
 </section>

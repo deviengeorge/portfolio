@@ -2,7 +2,7 @@
 const stats = [
   { value: 'Live', label: 'ALReserve, a luxury booking platform I lead', href: 'https://alreserve.com' },
   { value: '24', label: 'churches on one platform, 1,000+ users' },
-  { value: '4 wks → 3 min', label: 'exam scheduling with Nassaq, my graduation project' },
+  { value: '3 min', label: 'exam scheduling with Nassaq, down from 4 weeks' },
   { value: '99.99%', label: 'API uptime on ALReserve, last 30 days' },
 ];
 ---
@@ -11,7 +11,7 @@ const stats = [
   <div class="max-w-6xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
     {stats.map(({ value, label, href }) => (
       <div class="text-center">
-        <p class="text-3xl md:text-4xl font-serif text-stone-900 dark:text-stone-100">{value}</p>
+        <p class="text-3xl md:text-4xl font-serif whitespace-nowrap text-stone-900 dark:text-stone-100">{value}</p>
         <p class="text-sm text-stone-500 dark:text-stone-400 mt-1">{href ? <a href={href} target="_blank" rel="noopener noreferrer" class="underline decoration-stone-300 hover:text-stone-800 dark:hover:text-stone-200">{label}</a> : label}</p>
       </div>
     ))}
