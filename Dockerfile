@@ -13,6 +13,12 @@ server {
     server_name _;
     root /usr/share/nginx/html;
     index index.html;
+    absolute_redirect off;
+
+    # Stable CV link (LinkedIn Featured, applications): always the latest main CV
+    location ~ ^/cv/?$ {
+        return 302 /cv/devien-george-cv-full-stack.pdf;
+    }
 
     location / {
         try_files $uri $uri/ $uri.html =404;
