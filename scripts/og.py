@@ -39,21 +39,32 @@ p{{font-size:25px;line-height:1.5;color:#44403c}}
 </style></head><body>"""
 
 def site():
-    stats = [("Live", "ALReserve, booking platform I lead"), ("24", "churches on one platform"),
-             ("4 wks → 3 min", "exam scheduling, Nassaq"), ("99.99%", "API uptime, last 30 days")]
-    cells = "".join(f'<div><div style="font-family:\'DM Serif Display\',serif;font-size:42px">{a}</div>'
-                    f'<div style="font-size:17px;color:#78716c;margin-top:6px">{b}</div></div>' for a, b in stats)
-    return HEAD + f"""
+    """Home card: claim + live production panel, so the reader sees an engineer who ships, not just a name."""
+    rows = [("alreserve.com", "99.99% API uptime"), ("church-platform", "1,000+ users"),
+            ("nassaq", "4 weeks → 3 min"), ("commits shipped", "2,600+")]
+    lines = "".join(f'<div style="display:flex;gap:14px;padding:9px 0"><span style="color:#4ade80">●</span>'
+                    f'<span style="width:180px;flex:none;color:#e7e5e4">{a}</span><span style="color:#93c5fd">{b}</span></div>' for a, b in rows)
+    stack = "".join(f'<span style="border:1px solid #d6d3d1;padding:6px 12px;font-size:16px;color:#44403c;background:#fff">{t}</span>'
+                    for t in ["TypeScript", "React", "AdonisJS", "Laravel", "PostgreSQL", "Redis", "Docker"])
+    return HEAD.replace("display=swap", "family=JetBrains+Mono:wght@400;500&display=swap") + f"""
 <div class="bar"><span class="logo">DG</span><span class="host">deviengeorge.me</span></div>
-<div style="position:absolute;left:72px;top:128px;width:1000px">
- <div class="eyebrow">Full-Stack Software Engineer · Cairo, Egypt</div>
- <h1>Devien George</h1>
- <p style="margin-top:22px">I build and scale production web platforms, used by 1,000+ people daily.</p>
- <div style="margin-top:34px;font-size:19px;color:#44403c;display:flex;align-items:center;gap:12px">
-  <span style="width:10px;height:10px;border-radius:50%;background:{BLUE}"></span>Open to remote full-stack roles and contract work</div>
+<div style="position:absolute;left:72px;top:118px;width:560px">
+ <div class="eyebrow">Devien George · Full-Stack Engineer</div>
+ <h1 style="font-size:66px;line-height:1.04;margin-top:18px">I build systems<br>that <span style="color:{BLUE}">stay up</span><br>in production.</h1>
+ <p style="margin-top:22px;font-size:22px">4+ years shipping booking engines, multi-tenant SaaS and schedulers, from database to deploy.</p>
 </div>
-<div style="position:absolute;left:0;right:0;bottom:0;height:150px;border-top:1px solid #e7e5e4;background:#f5f5f4;
- display:grid;grid-template-columns:repeat(4,1fr);align-items:center;text-align:center;padding:0 40px">{cells}</div></body></html>"""
+<div style="position:absolute;right:72px;top:126px;width:470px;background:#1c1917;border-radius:14px;box-shadow:0 24px 48px -16px rgba(28,25,23,.45);
+ font-family:'JetBrains Mono',monospace;font-size:17px;overflow:hidden">
+ <div style="display:flex;gap:8px;padding:14px 18px;border-bottom:1px solid #292524">
+  <span style="width:12px;height:12px;border-radius:50%;background:#ef4444"></span><span style="width:12px;height:12px;border-radius:50%;background:#eab308"></span>
+  <span style="width:12px;height:12px;border-radius:50%;background:#22c55e"></span><span style="margin-left:12px;color:#78716c;font-size:14px">~/production</span></div>
+ <div style="padding:18px 24px 22px"><div style="color:#a8a29e;margin-bottom:8px"><span style="color:{BLUE}">$</span> status --all</div>{lines}
+  <div style="color:#a8a29e;margin-top:10px">all systems operational<span style="display:inline-block;width:10px;height:19px;background:#e7e5e4;margin-left:6px;vertical-align:-3px"></span></div></div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;height:96px;border-top:1px solid #e7e5e4;background:#f5f5f4;
+ display:flex;align-items:center;justify-content:space-between;padding:0 72px">
+ <div style="display:flex;gap:8px">{stack}</div>
+ <div style="font-size:19px;font-weight:700;color:{BLUE};white-space:nowrap">See how they're built →</div></div></body></html>"""
 
 def cv():
     rows = [("ALReserve", "Full-Stack Engineer", "2026 – now"), ("ITI, AMIT, Konecta", "Technical Instructor", "2021 – 2025"),
