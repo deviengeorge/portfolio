@@ -67,21 +67,22 @@ def site():
  <div style="font-size:19px;font-weight:700;color:{BLUE};white-space:nowrap">See how they're built →</div></div></body></html>"""
 
 def cv():
-    rows = [("ALReserve", "Full-Stack Engineer", "2026 – now"), ("ITI, AMIT, Konecta", "Technical Instructor", "2021 – 2025"),
-            ("Evolv", "Frontend Engineer", "2021 – 2022")]
-    trs = "".join(f'<div style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.28);font-size:19px">'
-                  f'<span><b style="font-weight:700">{a}</b> <span style="opacity:.8">· {b}</span></span><span style="opacity:.8">{c}</span></div>' for a, b, c in rows)
+    """CV card: CV label, name, version date, page 1 bleeding off the right edge. Big type for LinkedIn's small thumbnail."""
+    from datetime import date
+    pdf = PUB / "cv/devien-george-cv-full-stack.pdf"
+    updated = date.fromtimestamp(pdf.stat().st_mtime).strftime("%B %Y")  # ponytail: file mtime; `just cvs` rewrites it on every rebuild
     return f"""<html><head><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>*{{margin:0;box-sizing:border-box}} body{{width:1200px;height:630px;background:{BLUE};color:#fff;font-family:'DM Sans',sans-serif;position:relative;overflow:hidden}}</style></head><body>
-<div style="position:absolute;left:72px;top:64px;width:540px">
- <div style="display:flex;align-items:baseline;gap:16px;font-size:17px;letter-spacing:.16em;text-transform:uppercase;font-weight:700">
-  <span style="border:2px solid #fff;padding:6px 12px">Curriculum Vitae</span><span style="opacity:.85">PDF · 2 pages</span></div>
- <div style="font-family:'DM Serif Display',serif;font-size:88px;line-height:.95;margin-top:40px">Devien<br>George</div>
- <div style="font-size:26px;margin-top:20px;opacity:.95">Full-Stack Software Engineer, Cairo</div>
- <div style="margin-top:30px;border-top:1px solid rgba(255,255,255,.28)">{trs}</div>
+<div style="position:absolute;left:64px;top:0;bottom:0;width:680px;display:flex;flex-direction:column;justify-content:center">
+ <div style="display:flex;align-items:center;gap:20px;font-size:30px;letter-spacing:.14em;text-transform:uppercase;font-weight:700">
+  <span style="background:#fff;color:{BLUE};padding:6px 20px;font-size:46px;letter-spacing:.08em">CV</span><span>Curriculum Vitae</span></div>
+ <div style="font-family:'DM Serif Display',serif;font-size:100px;line-height:1;margin-top:26px;white-space:nowrap">Devien George</div>
+ <div style="font-size:40px;margin-top:12px;font-weight:500">Full-Stack Software Engineer</div>
+ <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:12px;margin-top:34px;border:2px solid rgba(255,255,255,.6);border-radius:999px;padding:10px 22px;font-size:26px;font-weight:500">
+  <span style="width:12px;height:12px;border-radius:50%;background:#fff"></span>Updated {updated} · PDF · 2 pages</div>
+ <div style="font-size:32px;font-weight:700;margin-top:44px">deviengeorge.me/cv →</div>
 </div>
-<div style="position:absolute;left:72px;bottom:40px;font-size:21px;font-weight:700">deviengeorge.me/cv</div>
-<div style="position:absolute;right:72px;top:64px;width:470px;height:610px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.08)">
+<div style="position:absolute;right:-90px;top:40px;width:520px;transform:rotate(3deg);background:#fff;box-shadow:0 30px 60px -10px rgba(0,0,40,.45)">
  <img src="data:image/png;base64,{b64(PUB / 'cv/cv-preview.png')}" style="width:100%;display:block"></div>
 </body></html>"""
 
@@ -137,7 +138,7 @@ for f in sorted((ROOT / "src/content/blog").glob("*.md*")):
 
 with sync_playwright() as p:
     b = p.chromium.launch()
-    pg = b.new_page(viewport={"width": 1200, "height": 630})
+    pg = b.new_page(viewport={"width": 1200, "height": 630}, device_scale_factor=2)  # 2400x1260: crisp after LinkedIn downscale
     for html, out in jobs:
         out.parent.mkdir(parents=True, exist_ok=True)
         pg.set_content(html, wait_until="networkidle")
