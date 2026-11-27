@@ -1,53 +1,64 @@
-"""Render OG images (1200x630): public/og-image.png and public/cv/cv-og.png.
+"""Render OG images (1200x630) in the site's own style (light, editorial, DM Serif + DM Sans).
+Outputs public/og-image.png and public/cv/cv-og.png.
 Run: ~/.venvs/playwright/bin/python scripts/og.py  (needs public/cv/cv-preview.png from `just cvs`)"""
 import base64, pathlib
 from playwright.sync_api import sync_playwright
 
-ROOT = pathlib.Path(__file__).resolve().parent.parent
-PUB = ROOT / "public"
+PUB = pathlib.Path(__file__).resolve().parent.parent / "public"
 cv_png = base64.b64encode((PUB / "cv/cv-preview.png").read_bytes()).decode()
 
-BASE = """<html><head>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+HEAD = """<html><head>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
 *{margin:0;box-sizing:border-box}
-body{width:1200px;height:630px;background:#1c1917;color:#fafaf9;font-family:'DM Sans',sans-serif;
- position:relative;overflow:hidden;border-top:6px solid #d97706}
-.glow{position:absolute;right:-180px;top:-180px;width:620px;height:620px;border-radius:50%;
- background:radial-gradient(circle,rgba(217,119,6,.22),transparent 65%)}
-.l{position:absolute;left:80px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;width:%W%px}
-.chip{align-self:flex-start;color:#1c1917;background:#f59e0b;font-weight:700;font-size:20px;letter-spacing:3px;
- padding:8px 16px;border-radius:6px;margin-bottom:28px}
-h1{font-family:'DM Serif Display',serif;font-weight:400;font-size:84px;line-height:1}
-.role{font-size:32px;color:#d6d3d1;margin-top:18px}
-.stack{font-size:22px;color:#a8a29e;margin-top:28px;line-height:1.5}
-.facts{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
-.facts span{border:1px solid #44403c;color:#e7e5e4;font-size:19px;padding:7px 14px;border-radius:999px}
-.url{position:absolute;left:80px;bottom:44px;font-size:22px;color:#f59e0b;font-weight:500}
-</style></head><body><div class="glow"></div>%BODY%</body></html>"""
+body{width:1200px;height:630px;border-top:6px solid #1e90ff;background:#fafaf9;color:#1c1917;font-family:'DM Sans',sans-serif;position:relative;overflow:hidden}
+.bar{position:absolute;left:0;right:0;top:0;height:76px;border-bottom:1px solid #e7e5e4;display:flex;align-items:center;
+ justify-content:space-between;padding:0 72px}
+.logo{font-family:'DM Serif Display',serif;font-size:30px;color:#1e90ff}
+.host{font-size:20px;color:#1e90ff;font-weight:500}
+.eyebrow{font-size:17px;letter-spacing:.14em;text-transform:uppercase;color:#1873cc;font-weight:500}
+h1{font-family:'DM Serif Display',serif;font-weight:400;font-size:96px;line-height:1;letter-spacing:-.01em;margin-top:16px}
+p{font-size:25px;line-height:1.5;color:#44403c}
+</style></head><body>"""
 
-portfolio = BASE.replace("%W%", "760").replace("%BODY%", """
-<div class="l">
+portfolio = HEAD + """
+<div class="bar"><span class="logo">DG</span><span class="host">deviengeorge.me</span></div>
+<div style="position:absolute;left:72px;top:128px;width:900px">
+ <div class="eyebrow">Full-Stack Software Engineer · Cairo, Egypt</div>
  <h1>Devien George</h1>
- <div class="role">Full-Stack Software Engineer · Cairo, Egypt</div>
- <div class="stack">Node.js · TypeScript · React · Next.js · Laravel · AWS</div>
- <div class="facts"><span>4+ years in production</span><span>Building ALReserve</span><span>ITI instructor</span></div>
+ <p style="margin-top:22px;width:1000px">I build and scale production web platforms, used by 1,000+ people daily.</p>
+ <div style="margin-top:34px;font-size:19px;color:#44403c;display:flex;align-items:center;gap:12px">
+  <span style="width:10px;height:10px;border-radius:50%;background:#1e90ff"></span>Open to remote full-stack roles and contract work</div>
 </div>
-<div class="url">deviengeorge.me</div>
-<div style="position:absolute;right:90px;top:50%;transform:translateY(-50%);width:260px;height:260px;border-radius:28px;
- border:2px solid #d97706;display:flex;align-items:center;justify-content:center;background:rgba(28,25,23,.6);
- font-family:'DM Serif Display',serif;font-size:130px;color:#f59e0b">DG</div>""")
+<div style="position:absolute;left:0;right:0;bottom:0;height:150px;border-top:1px solid #e7e5e4;background:#f5f5f4;
+ display:grid;grid-template-columns:repeat(4,1fr);align-items:center;text-align:center;padding:0 40px">
+ %STATS%
+</div></body></html>"""
+stats = [("Live", "ALReserve, booking platform I lead"), ("24", "churches on one platform"),
+         ("4 wks → 3 min", "exam scheduling, Nassaq"), ("99.99%", "API uptime, last 30 days")]
+portfolio = portfolio.replace("%STATS%", "".join(
+    f'<div><div style="font-family:\'DM Serif Display\',serif;font-size:42px">{a}</div>'
+    f'<div style="font-size:17px;color:#78716c;margin-top:6px">{b}</div></div>' for a, b in stats))
 
-cv = BASE.replace("%W%", "640").replace("%BODY%", f"""
-<div class="l">
- <div class="chip">CV · PDF</div>
- <h1>Devien George</h1>
- <div class="role">Full-Stack Software Engineer</div>
- <div class="stack">Node.js · TypeScript · React · Next.js<br>Laravel · AWS · Docker</div>
+cv = HEAD + f"""
+<div class="bar"><span class="logo">DG</span><span class="host">deviengeorge.me/cv</span></div>
+<div style="position:absolute;left:72px;top:128px;width:560px">
+ <div class="eyebrow">Curriculum Vitae · PDF</div>
+ <h1 style="font-size:84px">Devien George</h1>
+ <p style="margin-top:14px">Full-Stack Software Engineer</p>
+ <div style="margin-top:34px;border-top:1px solid #e7e5e4">
+  %ROWS%
+ </div>
 </div>
-<div class="url">deviengeorge.me/cv · always the latest version</div>
-<img src="data:image/png;base64,{cv_png}" style="position:absolute;right:90px;top:70px;width:400px;
- transform:rotate(3deg);border-radius:4px;box-shadow:0 30px 60px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.08)">""")
+<div style="position:absolute;right:72px;top:128px;width:440px;height:520px;overflow:hidden;border:1px solid #d6d3d1;border-bottom:0;background:#fff">
+ <img src="data:image/png;base64,{cv_png}" style="width:100%;display:block">
+</div></body></html>"""
+rows = [("ALReserve", "Full-Stack Engineer", "2026 – now"), ("ITI, AMIT, Konecta", "Technical Instructor", "2021 – 2025"),
+        ("Evolv", "Frontend Engineer", "2021 – 2022")]
+cv = cv.replace("%ROWS%", "".join(
+    f'<div style="display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid #e7e5e4;font-size:19px">'
+    f'<span><b style="font-weight:500">{a}</b> <span style="color:#78716c">· {b}</span></span><span style="color:#78716c">{c}</span></div>'
+    for a, b, c in rows))
 
 with sync_playwright() as p:
     b = p.chromium.launch()
